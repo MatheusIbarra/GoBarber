@@ -1,5 +1,6 @@
 import express, { NextFunction, Request, Response } from 'express';
 import 'express-async-errors';
+import cors from 'cors';
 import appointmentRoutes from '../src/routes/appointments.routes';
 import usersRoutes from '../src/routes/users.routes';
 import sessionsRoutes from '../src/routes/sessions.routes';
@@ -13,6 +14,7 @@ import './database/services'
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use(appointmentRoutes);
 app.use(usersRoutes);
